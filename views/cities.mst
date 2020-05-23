@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  {{> head }}
+    {{> header }}
+    <div class="container justify-content-md-center">
+      <div class="text-center">
+        <h1>List of cities</h1>
+      </div>
+      <table class="table table-striped table-dark">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">City name</th>
+            <th scope="col">Time</th>
+            <th scope="col">Air Quality Index</th>
+            <th scope="col">PM2.5</th>
+            <th scope="col">PM10</th>
+          </tr>
+        </thead>
+        <tbody>
+        {{#cities}}
+          <tr>
+            <th scope="row">{{index}}</th>
+            <td>{{name}}</td>
+            <td>{{date}}</td>
+            <td>{{AQI}}</td>
+            <td>{{PM2_5}}</td>
+            <td>{{PM10}}</td>
+          </tr>
+        {{/cities}}
+        </tbody>
+      </table>
+    </div>
+
+    {{> footer }}
+  </body>
+</html>

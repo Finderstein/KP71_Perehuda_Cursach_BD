@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  {{> head }}
+  <body style="background: rgb(136, 142, 217);color: rgb(0, 40, 98);">
+    
+    {{> header }}
+
+    <br>
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <div class="col-xl-9 align-self-center">
+          <div class="card align-items-center">
+            <img class="card-img-top" src="{{userInfo.avaUrl}}" style="height: 300px; width: 300px; border-radius: 490px 480px 480px 480px; margin: 10px;" alt="User avatar">
+            <div class="card-body" style="width: 100%;">
+              <h5 class="card-title"><strong>{{userInfo.fullname}} </strong> ({{userInfo.login}})</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{userInfo.registeredAt}}</h6>
+              <div class="card" style="width: 100%;">
+                {{#admin}}
+                  <div class="card-body">
+                    <form class="form-row" action="/users/{{userInfo._id}}" method="POST" enctype="multipart/form-data">
+                      <select name="role">
+                        {{#userAdmin}}
+                          <option value="Admin" selected >Admin</option>
+                          <option value="User">User</option>
+                          <option value="Disabled">Disabled</option>
+                        {{/userAdmin}}
+                        {{#userUser}}
+                          <option value="Admin">Admin</option>
+                          <option value="User" selected>User</option>
+                          <option value="Disabled">Disabled</option>
+                        {{/userUser}}
+                        {{#userInfo.isDisabled}}
+                          <option value="Admin">Admin</option>
+                          <option value="User">User</option>
+                          <option value="Disabled" selected>Disabled</option>
+                        {{/userInfo.isDisabled}}
+                      </select>
+                      <input type="submit" value="Update">
+                    </form>
+                  </div>
+                {{/admin}}
+              </div>
+              <div class="card" style="width: 100%;">
+                <div class="card-body">
+                  <h4 class="card-title">Bioghraphy</h4>
+                  <p class="card-text">{{userInfo.bio}}</p>
+                </div>
+              </div>
+              {{#author}}
+                <a href="/users/{{userInfo._id}}/update" class="btn btn-primary">Update your profile</a>
+              {{/author}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    {{> footer }}
+
+  </body>
+</html>

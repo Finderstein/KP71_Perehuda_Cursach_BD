@@ -1,0 +1,25 @@
+
+  <br>
+  {{#notes.length}}
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <div class="card-deck">
+          {{#notes}}
+            <a href="/lists/{{listId}}/notes/{{_id}}" style="color: inherit">
+              <div class="card" style="max-width: 15rem;">
+                <div class="card-body">
+                  <h5 class="card-title">{{title}}</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">{{importance}}</h6>
+                  <p class="card-text">{{note}}</p>
+                  <p class="card-text"><small class="text-muted">Last updated at: {{dateOfCreation}}</small></p>
+                </div>
+              </div>
+            </a>
+          {{/notes}}
+        </div>
+      </div>
+    </div>
+  {{/notes.length}}
+  {{^notes.length}}
+    <h3 style="text-align: center;">There is no notes</h3>
+  {{/notes.length}}

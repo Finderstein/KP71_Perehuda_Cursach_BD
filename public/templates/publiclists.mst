@@ -1,0 +1,41 @@
+  <br>
+  <div class="container justify-content-md-center">
+    <div class="row form-inline justify-content-md-center">
+      <b>Public lists</b>
+    </div>
+  </div>
+
+  <br>
+  {{#users_lists.length}}
+    <div class="container">
+      {{#users_lists}}
+        <div class="row justify-content-md-center">
+          <div class="card-group">
+            <a href='/users/{{user._id}}'>
+              <div class="card align-items-center border-primary" style="max-width: 10rem;">
+                <img class="card-img-top" src="{{user.avaUrl}}" style="height: 100px; width: 100px; border-radius: 160px 160px 160px 160px; margin: 10px;" alt="User avatar">
+                <div class="card-body" style="width: 100%;">
+                  <h5 class="card-title"><strong>{{user.fullname}} </strong> ({{user.login}})</h5>
+                </div>
+              </div>
+            </a>
+            <a href="/lists/{{list._id}}/notes" style="color: inherit">
+              <div class="card border-primary" style="min-width: 15rem; max-width: 20rem;">
+                <div class="card-header">{{list.typeOfAccess}}</div>
+                <div class="card-body">
+                  <h5 class="card-title">{{list.title}}</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">{{list.importance}}</h6>
+                  <p class="card-text">{{list.description}}</p>
+                  <p class="card-text"><small class="text-muted">Last updated at: {{list.createdAt}}</small></p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <br>
+      {{/users_lists}}
+    </div>
+  {{/users_lists.length}}
+  {{^users_lists.length}}
+    <h3 style="text-align: center;">There is no public lists</h3>
+  {{/users_lists.length}}

@@ -1,0 +1,258 @@
+body
+{
+    background: url('/images/mosaic.png');
+    color: white;
+}
+
+/* body
+{
+    width: 960px;
+    background: rgb(164, 182, 192);
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+header
+{
+    background: url(../images/hat.jpg) no-repeat center top / cover;
+    height: 100px; 
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.login
+{
+    color: rgb(136, 142, 217);
+    font-size: 30px;
+}
+
+.hat
+{
+    width: 120px;
+    margin: 0 auto;
+}
+
+.logo
+{
+    height: 50px;
+    width: 40px;
+    margin-top: 10px;
+}
+
+.hat a
+{
+    color: rgb(199, 215, 80);
+    font-size: 30px;
+}
+
+.search
+{
+    width: 400px;
+    margin: 15px auto;
+}
+
+.searchLine
+{
+    height: 18px;
+    width: 384px;
+}
+
+.navigation
+{
+    height: 42px;
+    background-color: #9D5353;
+}
+
+.navigation ul
+{
+    height: 42px;
+    margin: 0 auto;
+    padding: 0;
+    display: table;
+    list-style: none;
+}
+
+.navigation ul li
+{
+    display: table-cell;
+}
+
+.navigation ul li a
+{
+    float: left;
+    padding: 0 20px;
+    text-decoration: none;
+    line-height: 42px;
+    color: #560F0F;
+}
+
+.navigation ul li a:hover
+{
+    background-color: #560F0F;
+    color: #C73838;
+}
+
+.reg
+{
+    color: #041A5E;
+}
+
+p, h4
+{
+    color: #041A5E;
+}
+
+.short 
+{
+    width: 226px;
+    height: 22px;
+    font-size: 20px;
+    margin: 20px 367px;
+    text-align: center;
+}
+
+.normal
+{
+    width: 460px;
+    font-size: 20px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.listOfUsers
+{
+    height: 222px;
+    width: 800px;
+    margin: 20px auto;
+    border: gray ridge 2px;
+    border-collapse: collapse;
+}
+
+.listOfNotes
+{
+    height: 222px;
+    width: 400px;
+    margin: 20px auto;
+    border: gray ridge 2px;
+    border-collapse: collapse;
+}
+
+caption
+{
+    width: 400px;
+    margin: 0 auto;
+    font-size: 30px;
+    color: #051B5E;
+}
+
+th
+{
+    background-color: #4768CB;
+}
+
+td
+{
+    text-align: center;
+}
+
+.avatar
+{
+    height: 100px;
+    width: 100px;
+    border-radius: 160px 160px 160px 160px;
+}
+
+.userInfo 
+{
+    width: 226px;
+    height: 210px;
+    font-size: 20px;
+    margin: 20px 367px;
+    text-align: center;
+}
+
+.big
+{
+    width: 560px;
+    font-size: 20px;
+    margin: 100px auto;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: left;
+    border: gray ridge 2px;
+    border-collapse: collapse;
+}
+
+.foot
+{
+
+    width: 960px;
+    font-size: 20px;
+    margin: 20px auto;
+    padding: 10px;
+    text-align: left;
+    background-color: gray;
+    bottom: 0;
+}
+
+.foot p
+{
+    color: rgba(33, 27, 27, 0.55);
+}
+
+.newNote
+{
+    width: 960px;
+}
+
+.newNote form
+{
+    margin: 20px auto;
+}
+
+.pagination
+{
+    height: 42px;
+    padding: 0 auto;
+    text-align: center;
+}
+
+.pagination ul
+{
+    height: 42px;
+    padding: 0;
+    display: inline-block;
+    list-style: none;
+    background-color: white;
+}
+
+.pagination ul li
+{
+    display: table-cell;
+}
+
+.pagination ul li a
+{
+    float: left;
+    padding: 0 20px;
+    text-decoration: none;
+    line-height: 42px;
+    color: black;
+}
+
+.pagination ul li a:hover
+{
+    background-color: #C73838;
+}
+
+.delete
+{
+    margin: 60px 0 0 0;
+    text-align: center;
+    padding-bottom: 10px; 
+} */

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  {{> head }}
+  <body style="background: rgb(136, 142, 217);color: rgb(0, 40, 98);">
+    
+    {{> header }}
+
+    <br>
+    <div class="container justify-content-md-center">
+      <div class="row form-inline justify-content-md-center">
+        <input class="form-control" type="text" id="usersNameFilter" placeholder="Search" aria-label="Search">
+        <button class="btn btn-mdb-color btn-rounded btn-sm my-0 ml-sm-2" id="clearUsersFilter">Clear</button>
+      </div>
+    </div>
+
+    <div id="usersPagination">
+        <!-- pagination here -->
+    </div>
+
+    <div id="filteredUsers">
+        <!-- lists here -->
+      <br>
+      <div class="container justify-content-md-center" style="text-align: center;">
+        Please wait. We are loading users...
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
+    <script src="/javascripts/ui.js"></script>
+    <script src="/javascripts/browser-users.js"></script>
+
+    {{> footer }}
+  </body>
+</html>

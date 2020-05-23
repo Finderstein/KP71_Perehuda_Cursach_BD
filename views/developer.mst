@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>API Noter</title>
+    <meta name="description" content="API">
+    <meta name="author" content="Perehuda Yaroslav">
+    <style type="text/css">
+      .tg  {border-collapse:collapse;border-spacing:0;}
+      .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+      .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+      .tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
+      .tg .tg-uys7{border-color:inherit;text-align:center}
+      .tg .tg-7btt{font-weight:bold;border-color:inherit;text-align:center;vertical-align:top}
+      .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+      </style>
+  </head>
+  <body>
+    <table class="tg">
+      <caption>API</caption>
+      <tr>
+        <th class="tg-7btt">ENTITY</th>
+        <th class="tg-7btt">METHOD</th>
+        <th class="tg-7btt">URL</th>
+        <th class="tg-7btt">PROPERTIES</th>
+        <th class="tg-7btt">DESCRIPTION</th>
+      </tr>
+      <tr>
+        <td class="tg-uys7" rowspan="6">User<br></td>
+        <td class="tg-c3ow" rowspan="2">GET</td>
+        <td class="tg-c3ow"><br><br>/api/v1/users</td>
+        <td class="tg-0pky">-</td>
+        <td class="tg-0pky">Return array of users. Has 2 params: search -  searches users with specified username, page - number of page of displayed users. Return an error if page doesn't exist or if user is not admin.<br></td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">/api/v1/users/id</td>
+        <td class="tg-0pky">-</td>
+        <td class="tg-0pky">Returns user with specified id. Returns an error if user with such id doesn't exist or if it is users own properties or user is not admin.</td>
+      </tr>
+      <tr>
+        <td class="tg-uys7">POST</td>
+        <td class="tg-c3ow">/api/v1/users</td>
+        <td class="tg-0pky">- username (string, length from 4 to 30),<br>- password (string, length from 4 to 30),<br>- repeat_password (string),<br>- fullname (string),<br>- bio (string),<br>- avatar (file, size shoulb be less than 5mb).<br></td>
+        <td class="tg-0pky">Returns created user. Returns error if some data is missing.<br></td>
+      </tr>
+      <tr>
+        <td class="tg-uys7" rowspan="3">PUT</td>
+        <td class="tg-c3ow">/api/v1/users/id</td>
+        <td class="tg-0pky">- fullname (string),<br>- bio (string),<br>- avatar (file, size shoulb be less than 5mb).<br></td>
+        <td class="tg-0pky">Changes user properties and returns this user. Returns an error if user with such id doesn't exist or if it is users own properties.</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">/api/v1/users/id/role</td>
+        <td class="tg-0pky">- role (string, "Admin" or "User")</td>
+        <td class="tg-0pky">Changes user role and returns this user.Returns an error if user with such id don't exist or if user is not admin.<br></td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">/api/v1/users/id/enabled</td>
+        <td class="tg-0pky">- isDisabled (string, "true" or "false")</td>
+        <td class="tg-0pky">Disables or enebles user account and returns this user.Returns an error if user with such id doesn't exist or if user is not admin.</td>
+      </tr>
+      <tr>
+        <td class="tg-uys7" rowspan="5">List<br></td>
+        <td class="tg-uys7" rowspan="2">GET</td>
+        <td class="tg-c3ow">/api/v1/lists</td>
+        <td class="tg-0pky">-</td>
+        <td class="tg-0pky">Return array of lists of authorized user. Has 2 params: search -  searches users with specified username, page - number of page of displayed users. Return an error if page doesn't exist.</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">/api/v1/lists/id</td>
+        <td class="tg-0pky">-</td>
+        <td class="tg-0pky">Returns list with specified id of authorized user. Returns an error if list with such id doesn't exist.</td>
+      </tr>
+      <tr>
+        <td class="tg-uys7">POST</td>
+        <td class="tg-c3ow">/api/v1/lists</td>
+        <td class="tg-0pky"><br>- title (string),<br>- description (string),<br>- improtance (number),<br>- typeOfAccess (string, "private" or "public").<br></td>
+        <td class="tg-0pky">Returns created list. Returns error if some data is missing or user is not logged in.</td>
+      </tr>
+      <tr>
+        <td class="tg-uys7">PUT</td>
+        <td class="tg-c3ow">/api/v1/lists/id</td>
+        <td class="tg-0pky">- title (string),<br>- description (string),<br>- improtance (number),<br>- typeOfAccess (string, "private" or "public").</td>
+        <td class="tg-0pky">Changes list properties and returns this list. Returns an error if list with such id doesn't exist or if logged in user is not an author.</td>
+      </tr>
+      <tr>
+        <td class="tg-uys7">DELETE</td>
+        <td class="tg-c3ow">/api/v1/lists/id</td>
+        <td class="tg-0pky">-</td>
+        <td class="tg-0pky">Deletes list and returns success message. Returns an error if list with such id doesn't exist or if logged in user is not an author.</td>
+      </tr>
+      <tr>
+        <td class="tg-uys7" rowspan="5">Note</td>
+        <td class="tg-uys7" rowspan="2">GET</td>
+        <td class="tg-c3ow">/api/v1/listId/notes</td>
+        <td class="tg-0pky">-</td>
+        <td class="tg-0pky">Return array of notes of specified list with listId. Has 2 params: search -  searches users with specified username, page - number of page of displayed users. Return an error if page doesn't exist.</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">/api/v1/listId/notes/id</td>
+        <td class="tg-0pky">-</td>
+        <td class="tg-0pky">Returns note with specified id of list with specified listId. Returns an error if note with such id doesn't exist.</td>
+      </tr>
+      <tr>
+        <td class="tg-uys7">POST</td>
+        <td class="tg-c3ow">/api/v1/listId/notes</td>
+        <td class="tg-0pky">- title (string),<br>- note (string),<br>- improtance (number),<br>- file (file).<br></td>
+        <td class="tg-0pky">Returns created note. Returns error if some data is missing or user is not logged in.</td>
+      </tr>
+      <tr>
+        <td class="tg-uys7">PUT</td>
+        <td class="tg-c3ow">/api/v1/listId/notes/id</td>
+        <td class="tg-0pky">- title (string),<br>- note (string),<br>- improtance (number).</td>
+        <td class="tg-0pky">Changes note properties and returns this note. Returns an error if note with such id doesn't exist or if logged in user is not an author.</td>
+      </tr>
+      <tr>
+        <td class="tg-uys7">DELETE</td>
+        <td class="tg-c3ow">/api/v1/listId/notes/id</td>
+        <td class="tg-0pky">-</td>
+        <td class="tg-0pky">Deletes note and returns success message. Returns an error if note with such id doesn't exist or if logged in user is not an author.</td>
+      </tr>
+    </table>
+    <p>For authorization API uses basic authorization.</p>
+    <p>Errors returns with codes 400, 401, 403, 404, 500 in format {error: string} where string is a description of error.</p>
+  </body>
+</html>

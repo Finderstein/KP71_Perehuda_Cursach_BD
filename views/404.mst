@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="en">
+  {{> head }}
+    {{> header }}
+
+    <img src="images/404.jpg" alt="404 Not found" style="width: 100%; text-align: center; margin-top: 20px;">
+
+    {{> footer }}
+  </body>
+</html>

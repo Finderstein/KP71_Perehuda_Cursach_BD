@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  {{> head }}
+  <body style="background: rgb(136, 142, 217);color: rgb(0, 40, 98);">
+    
+    {{> header }}
+
+    <br>
+    <div class="container">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <h4 class="card-title"><b>{{list.title}}</b> ({{list.typeOfAccess}})</h4>
+            {{#author}}
+              <pre>  </pre>
+              <a role="button" class="btn btn-success" href="/lists/{{list._id}}/notes/update" style="height: 35px;">Update</a>
+              <pre>  </pre>
+              <a role="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal" style="height: 35px;">Delete</a>
+            {{/author}}
+          </div>
+          <h6 class="card-subtitle mb-2 text-muted">Importance: {{list.importance}}</h6>
+          <p class="card-text">{{list.description}}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">Are you sure?</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to delete this list?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <form action="/lists/{{list._id}}/notes/delete"  method="POST" enctype="multipart/form-data">
+              <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <div class="container justify-content-md-center">
+      <div class="row form-inline justify-content-md-center">
+        <input class="form-control" type="text" id="notesNameFilter" placeholder="Search" aria-label="Search">
+        <button class="btn btn-mdb-color btn-rounded btn-sm my-0 ml-sm-2 btn-warning" id="clearNotesFilter">Clear</button>
+      </div>
+    </div>
+
+    <div id="notesPagination">
+        <!-- pagination here -->
+    </div>
+
+    <br>
+    <div class="container justify-content-md-center">
+      <div class="row form-inline justify-content-md-center">
+        <b>Notes</b>
+        {{#author}}
+          <pre>  </pre>
+          <a role="button" class="btn btn-primary" href ="/lists/{{list._id}}/notes/new">Add new</a>
+        {{/author}}
+      </div>
+    </div>
+
+    <div id="filteredNotes">
+      <!-- notes here -->
+      <br>
+      <div class="container justify-content-md-center" style="text-align: center;">
+        Please wait. We are loading your notes...
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
+    <script src="/javascripts/ui.js"></script>
+    <script src="/javascripts/browser-notes.js"></script>
+
+    {{> footer }}
+  </body>
+</html>
