@@ -161,64 +161,59 @@ function getAirStats(stationsArray)
     return cityStats;
 }
 
-// setInterval(function getCitiesInfo ()
-// {   
-//     City.clearCities()
-//     .then(() =>
-//     {
-//         return fetch(`https://api.saveecobot.com/output.json`);
-//     })
-//     .then(json => json.text())
-//     .then(json =>
-//     {
-//         console.log("\n\nUpdate DATABASE!");
-//         json = JSON.parse(json);
-//         let cities_info = {}
-//         for(let i = 0; i < json.length; i++)
-//         {
-//             let station_info = json[i];
-//             let value = [];
-//             value.push(station_info)
-//             if(cities_info[station_info.cityName])
-//                 cities_info[station_info.cityName].push(station_info);
-//             else
-//                 cities_info[station_info.cityName] = value;
-//         }
+setInterval(function getCitiesInfo ()
+{   
+    City.clearCities()
+    .then(() =>
+    {
+        return fetch(`https://api.saveecobot.com/output.json`);
+    })
+    .then(json => json.text())
+    .then(json =>
+    {
+        console.log("\n\nUpdate DATABASE!");
+        json = JSON.parse(json);
+        let cities_info = {}
+        for(let i = 0; i < json.length; i++)
+        {
+            let station_info = json[i];
+            let value = [];
+            value.push(station_info)
+            if(cities_info[station_info.cityName])
+                cities_info[station_info.cityName].push(station_info);
+            else
+                cities_info[station_info.cityName] = value;
+        }
         
-//         for (let key in cities_info) if (cities_info.hasOwnProperty(key))
-//         {
-//             let airStats = getAirStats(cities_info[key]);
+        for (let key in cities_info) if (cities_info.hasOwnProperty(key))
+        {
+            let airStats = getAirStats(cities_info[key]);
 
-//             if(!airStats.validInfo) 
-//             {
-//                 console.log("!!!Invalid number of air variables in city: " + key);
-//                 continue;
-//             }
+            if(!airStats.validInfo) 
+            {
+                console.log("!!!Invalid number of air variables in city: " + key);
+                continue;
+            }
 
-//             City.insert(new City(key, new Date(airStats.date).toUTCString(), parseFloat((sstatistics.mean(airStats.AQI)).toFixed(3)), 
-//             parseFloat((sstatistics.mean(airStats.PM2_5)).toFixed(3)), parseFloat((sstatistics.mean(airStats.PM10)).toFixed(3)), 
-//             parseFloat((sstatistics.mean(airStats.temperature)).toFixed(3)), parseFloat((sstatistics.mean(airStats.pressure)).toFixed(3)),
-//             parseFloat((sstatistics.mean(airStats.humidity)).toFixed(3)), airStats.stations));
+            City.insert(new City(key, new Date(airStats.date).toUTCString(), parseFloat((sstatistics.mean(airStats.AQI)).toFixed(3)), 
+            parseFloat((sstatistics.mean(airStats.PM2_5)).toFixed(3)), parseFloat((sstatistics.mean(airStats.PM10)).toFixed(3)), 
+            parseFloat((sstatistics.mean(airStats.temperature)).toFixed(3)), parseFloat((sstatistics.mean(airStats.pressure)).toFixed(3)),
+            parseFloat((sstatistics.mean(airStats.humidity)).toFixed(3)), airStats.stations));
 
-//             citiesInserted++;
-//         }
-//         console.log("Stations inserted: " + stationsInserted);
-//         console.log("Cities inserted: " + citiesInserted);
-//         stationsInserted = 0;
-//         citiesInserted = 0;
-//     });
+            citiesInserted++;
+        }
+        console.log("Stations inserted: " + stationsInserted);
+        console.log("Cities inserted: " + citiesInserted);
+        stationsInserted = 0;
+        citiesInserted = 0;
+    });
     
-// }, 10000);
+}, 60000);
 
 // usage
 app.get('/', function(req, res)
 {
     res.render('index', {});
-});
-
-app.get('/about', function(req, res)
-{
-    res.render('about', {});
 });
 
 app.get('/cities', function(req, res)
