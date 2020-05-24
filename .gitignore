@@ -50,3 +50,15 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+node_modules
+.vscode
+.idea
+npm-debug.log
+build
+.DS_STORE
+*.swp
+.env
+yarn.lock
+src/*.d.ts.
+backup
+data

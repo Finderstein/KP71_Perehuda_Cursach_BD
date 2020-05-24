@@ -3,7 +3,7 @@ require('dotenv').config();
 module.exports = 
 {
     ServerPort: 5000,
-    DatabaseUrl: /*"mongodb://localhost:27017/mydb"*/ "mongodb://mlab_cursach_bd_user:master13@ds053958.mlab.com:53958/mlab_cursach_bd",
+    DatabaseUrl: "mongodb://localhost:27017/mydb" /*"mongodb://mlab_cursach_bd_user:master13@ds053958.mlab.com:53958/mlab_cursach_bd"*/,
     cloudinary:
     {
         cloud_name: "dmne1oxqg",

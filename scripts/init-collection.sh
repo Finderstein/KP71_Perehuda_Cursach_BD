@@ -11,7 +11,7 @@ db.createUser({
     db: '$DB'
   }]
 })
-db.cursach_bd.createIndex({ pressure:"hashed"})
+db.mlab_cursach_bd_cities.createIndex({ name:"hashed"})
 sh.enableSharding('$DB')
-sh.shardCollection( "$DB.cursach_bd", { pressure:"hashed" })
+sh.shardCollection( "$DB.mlab_cursach_bd_cities", { name:"hashed" })
 EOF

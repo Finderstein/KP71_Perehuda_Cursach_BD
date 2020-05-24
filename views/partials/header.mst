@@ -20,7 +20,10 @@
         <a href="/charts" class="nav-link">Charts</a>
       </li>
       <li class="nav-item active">
-        <a href="/about" class="nav-link">About</a>
+        <a href="/backup" class="nav-link">Backup</a>
+      </li>
+      <li class="nav-item active">
+        <a href="/restore" class="nav-link">Restore</a>
       </li>
     </ul>
 </nav>

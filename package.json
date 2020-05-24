@@ -22,7 +22,8 @@
     "mongoose": "^5.3.9",
     "mustache-express": "^1.2.8",
     "node-fetch": "^2.6.0",
-    "simple-statistics": "^7.1.0"
+    "simple-statistics": "^7.1.0",
+    "sudo-js": "^1.0.2"
   },
   "devDependencies": {
     "window": "^4.2.5"
