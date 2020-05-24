@@ -9,6 +9,7 @@ const CityShema = new mongoose.Schema({
     temperature: { type: String, required: true },
     pressure: { type: String, required: true },
     humidity: { type: String, required: true },
+    stations: { type: [], required: true },
 });
 
 
@@ -17,7 +18,7 @@ const CityModel = mongoose.model('mlab_cursach_bd_city', CityShema);
 
 class City
 {
-    constructor(name, date, AQI, PM2_5, PM10, temperature, pressure, humidity)
+    constructor(name, date, AQI, PM2_5, PM10, temperature, pressure, humidity, stations)
     {
         this.name = name;
         this.date = date;
@@ -27,6 +28,7 @@ class City
         this.temperature = temperature;
         this.pressure = pressure;
         this.humidity = humidity;
+        this.stations = stations;
     }
 
     static getById(id)
@@ -39,12 +41,12 @@ class City
         return CityModel.findOne({ name: name});
     }
 
-    static getAQI()
+    static getSomething(query)
     {
-        return CityModel.find({}).select("AQI -_id");
+        return CityModel.find({}).select(query);
     }
     
-    static getAll()
+    static getAllCities()
     {
         return CityModel.find();
     }
