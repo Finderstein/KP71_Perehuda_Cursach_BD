@@ -11,7 +11,9 @@ const CityShema = new mongoose.Schema({
     humidity: { type: String, required: true },
 });
 
-const CityModel = mongoose.model('cursach_bd', CityShema, 'cursach_bd');
+
+//const CityModel = mongoose.model('cursach_bd', CityShema, 'cursach_bd');
+const CityModel = mongoose.model('mlab_cursach_bd_city', CityShema);
 
 class City
 {
@@ -35,6 +37,11 @@ class City
     static getByName(name)
     {
         return CityModel.findOne({ name: name});
+    }
+
+    static getAQI()
+    {
+        return CityModel.find({}).select("AQI -_id");
     }
     
     static getAll()
