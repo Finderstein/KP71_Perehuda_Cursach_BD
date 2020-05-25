@@ -1,1 +1,3 @@
-[Технічне завдання](https://docs.google.com/document/d/1SyKm1nuPC9Da3BQG_x_qGzTE9vy1etUYCRFMIBsE5XE/edit#heading=h.3qefl2d47ksh)
+[Технічне завдання](https://drive.google.com/file/d/1uQFudpAE9BgU_JDdH9JhOI-bgi8P63ss/view?usp=sharing)
+ | 
+[Пояснювальна записка](https://docs.google.com/document/d/1Rjj8Xytq4HyxhK3PEt_hBvsZr7iY1sX7mL9ewn2rqus/edit?usp=sharing)
