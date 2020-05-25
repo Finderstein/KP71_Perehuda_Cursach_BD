@@ -248,8 +248,6 @@ function loadThirdChart()
             dots.push({ x: airStatsArray.temperature[i], y: airStatsArray.humidity[i] });
         }
 
-        console.log(dots);
-
         var scatterChartData = {
 			datasets: [{
 				label: 'x: temperature, y: humidity',
@@ -287,9 +285,6 @@ function loadThirdChart()
                 }
             }
         });
-
-        let linearRegression1 = ss.linearRegression([airStatsArray.humidity, airStatsArray.temperature]);
-        console.log(linearRegression1);
     });
 }
 
@@ -301,14 +296,11 @@ function loadFourthChart()
         let dots = [];
 
         let linearRegression = ss.linearRegression([airStatsArray.humidity, airStatsArray.temperature]);
-        console.log(linearRegression);
 
         for (let x = 0; x <= 50; x += 5)
         {
             dots.push( linearRegression.m * x + linearRegression.b );
         }
-
-        console.log(dots);
 
         var scatterChartData = {
             labels: ['0', '5', '10', '15', '20', '25', '30', '35', '40', '45', '50'],

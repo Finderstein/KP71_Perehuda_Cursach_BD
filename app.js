@@ -15,7 +15,6 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 
 const City = require("./models/city.js");
-const Sstation = require("./models/sstation");
 
 const viewsDir = path.join(__dirname, 'views');
 app.engine("mst", mustache(path.join(viewsDir, "partials")));
